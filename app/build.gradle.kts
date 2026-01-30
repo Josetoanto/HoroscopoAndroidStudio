@@ -17,8 +17,9 @@ android {
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        val apiKey = project.findProperty("API_NINJAS_KEY")?.toString() ?: ""
+        buildConfigField("String", "API_NINJAS_KEY", "\"$apiKey\"")
     }
 
     buildTypes {
@@ -39,6 +40,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
@@ -68,4 +70,5 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.compose)
     implementation(libs.coil.compose)
     implementation(libs.google.mlkit.translation)
+    implementation(libs.retrofit.converter.gson)
 }
