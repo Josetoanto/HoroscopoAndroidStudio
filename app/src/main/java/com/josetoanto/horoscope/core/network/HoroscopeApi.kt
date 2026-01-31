@@ -6,5 +6,5 @@ import retrofit2.http.Query
 
 interface HoroscopeApi {
     @GET("horoscope")
-    suspend fun getHoroscope(@Query("sign") sign: String): HoroscopeResponse
+    suspend fun getHoroscope(@Query("zodiac") sign: String): HoroscopeResponse
 }

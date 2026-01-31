@@ -1,4 +1,4 @@
-package com.josetoanto.horoscope.features.horoscope.presentation.horoscope
+package com.josetoanto.horoscope.features.horoscope.presentation.horoscope.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

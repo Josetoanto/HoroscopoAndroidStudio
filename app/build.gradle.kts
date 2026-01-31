@@ -18,6 +18,7 @@ android {
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "BASE_URL_NINJAS", "\"https://api.api-ninjas.com/v1/\"")
         val apiKey = project.findProperty("API_NINJAS_KEY")?.toString() ?: ""
         buildConfigField("String", "API_NINJAS_KEY", "\"$apiKey\"")
     }
@@ -71,4 +72,6 @@ dependencies {
     implementation(libs.coil.compose)
     implementation(libs.google.mlkit.translation)
     implementation(libs.retrofit.converter.gson)
+    implementation(libs.google.mlkit.translation)      // ya lo tenías
+    implementation(libs.google.mlkit.language.id)
 }
