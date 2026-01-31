@@ -1,4 +1,4 @@
-package com.josetoanto.horoscope.ui.theme
+package com.josetoanto.horoscope.core.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

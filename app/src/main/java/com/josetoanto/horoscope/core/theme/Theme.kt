@@ -1,6 +1,5 @@
-package com.josetoanto.horoscope.ui.theme
+package com.josetoanto.horoscope.core.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
