@@ -5,11 +5,14 @@ import androidx.lifecycle.viewModelScope
 import com.josetoanto.horoscope.features.horoscope.domain.usecase.GetHoroscopeUseCase
 import com.josetoanto.horoscope.features.horoscope.presentation.horoscope.screen.HoroscopeUiState
 import com.josetoanto.horoscope.features.horoscope.presentation.translation.TranslatorHelper
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class HoroscopeViewModel(
+@HiltViewModel
+class HoroscopeViewModel @Inject constructor(
     private val getHoroscopeUseCase: GetHoroscopeUseCase
 ) : ViewModel() {
 
@@ -40,7 +43,7 @@ class HoroscopeViewModel(
                             _uiState.value = _uiState.value.copy(
                                 isTranslating = false,
                                 error = "Error al traducir: ${e.message}",
-                                horoscopeText = h.text // fallback al original
+                                horoscopeText = h.text
                             )
                         }
                     } else {
@@ -54,7 +57,6 @@ class HoroscopeViewModel(
         }
     }
 
-    // Wrapper para compatibilidad con llamadas previas:
     fun loadHoroscope(sign: String) {
         loadHoroscopeAndTranslate(sign, translateToSpanish = true)
     }

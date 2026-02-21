@@ -2,9 +2,11 @@ package com.josetoanto.horoscope.features.horoscope.domain.usecase
 
 import com.josetoanto.horoscope.features.horoscope.domain.model.Horoscope
 import com.josetoanto.horoscope.features.horoscope.domain.repository.HoroscopeRepository
-import kotlin.Result
+import javax.inject.Inject
 
-class GetHoroscopeUseCase(private val repository: HoroscopeRepository) {
+class GetHoroscopeUseCase @Inject constructor(
+    private val repository: HoroscopeRepository
+) {
     suspend operator fun invoke(sign: String): Result<Horoscope> {
         return repository.getHoroscope(sign)
     }
