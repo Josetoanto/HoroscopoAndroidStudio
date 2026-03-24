@@ -10,16 +10,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.josetoanto.horoscope.features.horoscope.presentation.horoscope.viewmodel.HoroscopeViewModel
-import com.josetoanto.horoscope.features.horoscope.presentation.horoscope.viewmodel.HoroscopeViewModelFactory
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HoroscopeScreen(factory: HoroscopeViewModelFactory) {
+fun HoroscopeScreen(viewModel: HoroscopeViewModel = hiltViewModel()) {
 
-    val viewModel: HoroscopeViewModel = viewModel(factory = factory)
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     var selectedSign by remember { mutableStateOf("aries") }
@@ -29,7 +27,7 @@ fun HoroscopeScreen(factory: HoroscopeViewModelFactory) {
         "libra","scorpio","sagittarius","capricorn","aquarius","pisces"
     )
 
-    // 🌌 Fondo Galaxia
+    // Fondo Galaxia
     val galaxyBackground = Brush.verticalGradient(
         colors = listOf(
             Color(0xFF0B0033),
@@ -171,4 +169,3 @@ fun HoroscopeScreen(factory: HoroscopeViewModelFactory) {
         }
     }
 }
-
